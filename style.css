@@ -1,0 +1,301 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Increase line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/*
+    11. 62.5% trick
+*/
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+}
+
+
+/** Variables  */
+
+:root{
+    --red: hsl(0, 100%, 74%);
+    --green: hsl(154, 59%, 51%);
+    --purple-accent: hsl(248, 32%, 49%);
+    --gray: hsl(249, 10%, 26%);
+    --purple: hsl(246, 25%, 77%);
+    --white: hsl(0, 0%, 100%);
+    --font-poppins: "Poppins", sans-serif;
+    --lrg-space: 4rem;
+    --mid-space: 3rem;
+    --sm-space: 2rem;
+    --xsm-space: 1rem;
+    --border-radius: 1rem;
+    --sm-border-radius: 0.5rem;
+    --box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.15);
+}
+
+/** Global styles */
+
+body {
+    font-family: var(--font-poppins);
+    background-image: url("./images/bg-intro-mobile.png");
+    background-color: var(--red);
+    background-size: cover;
+    color: white;
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    gap: var(--mid-space); 
+}
+
+a{
+    color: var(--red);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/** Container */
+
+main{
+    max-width: 144rem;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "box1"
+    "box2"
+    "box3";
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    gap: var(--mid-space);
+    padding: 0 var(--lrg-space);
+
+}
+
+/** Intro styling*/
+#intro{
+    display: flex;
+    flex-direction: column;
+    gap: var(--sm-space);
+    padding: var(--lrg-space) 0;
+}
+h1{
+    text-align: center;
+    font-size: 4.2rem;
+    line-height: 5rem;
+}
+
+h2{
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    text-wrap: balance;
+}
+
+/** Call to action styling */
+#cta{
+    background: var(--purple-accent);
+    padding: var(--sm-space);
+    border-radius: var(--border-radius);
+    color:white;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+}
+
+/** Sign-up styling */
+
+#sign-up{
+    background: white;
+    padding: var(--sm-space);
+    border-radius: var(--border-radius);
+    color: var(--gray);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sm-space);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: var(--sm-space);
+}
+
+input{
+    padding: var(--sm-space);
+    border-radius: var(--sm-border-radius);
+    border: 1px solid var(--purple);
+    color: var(--gray);
+    font-weight: 600;
+    letter-spacing: 0.01rem;
+    width: 100%;
+    caret-color: var(--purple-accent);
+}
+
+input:focus-visible{
+    border:none;
+    outline: 0.2rem solid var(--purple-accent);
+}
+
+button{
+    background: var(--green);
+    color: var(--white);
+    border: none;
+    border-radius: var(--sm-border-radius);
+    padding: var(--sm-space);
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover{
+    transform: translateY(-5px);
+}
+
+
+.hidden{
+    display: none;
+}
+
+.form-control{
+    width: 100%;
+    position: relative;
+}
+
+.exclamation-mark{
+    position: absolute;
+    top: 2rem;
+    right: 1.5rem;
+}
+.form-control small{
+    display: block;
+    text-align: right;
+    color:var(--red);
+}
+.form-control small.hidden{
+display: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0); /* Snips the box tight so it doesn't show */
+    white-space: nowrap;
+}
+
+/* When .form-control has the .error class, style the input inside it */
+.form-control.error input {
+    border: 2px solid var(--red);
+    color: var(--red);
+}
+/* When .form-control has the .error class, style the input inside it */
+.form-control.success input {
+    border: 2px solid var(--green);
+    color: var(--green);
+}
+
+.terms{
+    font-size: 1.2rem;;
+}
+
+/** Footer styling */
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-top: var(--sm-space);
+    background:  var(--purple-accent);
+    color: var(--white);
+}
+
+footer a{
+    color: var(--purple);
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+footer a:hover{
+    color: var(--green);
+}
+
+/** Media queries */
+
+@media (min-width: 64rem){
+    body{
+        background-image: url(./images/bg-intro-desktop.png);
+    }
+    main{
+        grid-template-areas: "box1 box2"
+        "box1 box3";
+        grid-template-columns: 1fr 1fr;
+    }
+    h1{
+        font-size: 5.2rem;
+        line-height: 6rem;
+    }
+}
