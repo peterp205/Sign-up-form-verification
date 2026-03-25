@@ -62,6 +62,7 @@ html {
 }
 body {
   font-size: 1.6rem;
+    overflow-x: hidden;
 }
 
 
@@ -85,8 +86,7 @@ body {
 }
 
 /** Global styles */
-
-body {
+#container{
     font-family: var(--font-poppins);
     background-image: url("./images/bg-intro-mobile.png");
     background-color: var(--red);
@@ -192,7 +192,6 @@ input{
 }
 
 input:focus-visible{
-    border:none;
     outline: 0.2rem solid var(--purple-accent);
 }
 
@@ -271,6 +270,13 @@ footer{
     padding-top: var(--sm-space);
     background:  var(--purple-accent);
     color: var(--white);
+    /* The PULL (Background goes to the edges) */
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    
+    /* The PUSH (Text stays inside the invisible container line) */
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
 }
 
 footer a{
@@ -286,7 +292,7 @@ footer a:hover{
 /** Media queries */
 
 @media (min-width: 64rem){
-    body{
+    #container{
         background-image: url(./images/bg-intro-desktop.png);
     }
     main{

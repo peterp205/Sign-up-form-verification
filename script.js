@@ -34,27 +34,27 @@ function checkInputs () {
 	const passwordValue = password.value.trim();
 
     if(firstNameValue === '') {
-        setErrorFor(forename, 'First name cannot be blank')
+        setErrorFor(forename, 'First name cannot be empty')
     } else {
         setSuccessFor(forename);
     }
 
     if(secondNameValue === '') {
-        setErrorFor(surname, 'Last name cannot be blank')
+        setErrorFor(surname, 'Last name cannot be empty')
     } else {
         setSuccessFor(surname);
     }
 
     if(emailValue === '') {
-        setErrorFor(email, 'Email cannot be blank')
+        setErrorFor(email, 'Email cannot be empty')
     } else if (!isEmail(emailValue)) {
-        setErrorFor(email, 'Not a valid email')
+        setErrorFor(email, 'Looks like this is not an email')
     } else {
         setSuccessFor(email);
     }
 
     if(passwordValue === '') {
-        setErrorFor(password, 'Password cannot be blank')
+        setErrorFor(password, 'Password cannot be empty')
     } else {
         setSuccessFor(password);
     }
