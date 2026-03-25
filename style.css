@@ -124,7 +124,6 @@ main{
     align-content: center;
     gap: var(--mid-space);
     padding: 0 var(--lrg-space);
-
 }
 
 /** Intro styling*/

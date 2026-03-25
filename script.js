@@ -18,7 +18,7 @@ form.addEventListener('submit', (e) => {
     checkInputs();
 });
 
-// form.addEventListener('submit', logSubmit);
+form.addEventListener('submit', logSubmit);
 
 // function logSubmit(e) {
 //     // This stops the page from refreshing!
